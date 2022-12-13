@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @facebook.title %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @facebook.content %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @facebook.image %>
+</p>
+
+<%= link_to 'Edit', edit_facebook_path(@facebook) %> |
+<%= link_to 'Back', facebooks_path %>
