@@ -5,6 +5,10 @@ ruby '3.0.1'
 
 gem 'bcrypt'
 
+gem 'carrierwave'
+
+gem 'mimemagic'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.6'

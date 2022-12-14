@@ -22,6 +22,7 @@ class FacebooksController < ApplicationController
   # POST /facebooks or /facebooks.json
   def create
     @facebook = Facebook.new(facebook_params)
+    @facebook.user_id = current_user.id
 
     respond_to do |format|
       if @facebook.save
@@ -32,6 +33,12 @@ class FacebooksController < ApplicationController
         format.json { render json: @facebook.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def confirm
+    @facebook = Facebook.new(facebook_params)
+    @facebook.user_id = current_user.id #現在ログインしているuserのidを、blogのuser_idカラムに挿入する
+    render :new if @facebook.invalid?
   end
 
   # PATCH/PUT /facebooks/1 or /facebooks/1.json
@@ -65,6 +72,6 @@ class FacebooksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def facebook_params
-      params.require(:facebook).permit(:title, :content, :image)
+      params.require(:facebook).permit(:title, :content, :image, :image_cache)
     end
 end
