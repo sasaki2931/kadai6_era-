@@ -15,14 +15,13 @@ class FacebooksController < ApplicationController
     @facebook = Facebook.new
   end
 
-  # GET /facebooks/1/edit
   def edit
   end
 
-  # POST /facebooks or /facebooks.json
+  
   def create
     @facebook = Facebook.new(facebook_params)
-    @facebook.user_id = current_user.id
+    @facebook = current_user.facebooks.build(facebook_params)
 
     respond_to do |format|
       if @facebook.save
@@ -37,7 +36,7 @@ class FacebooksController < ApplicationController
 
   def confirm
     @facebook = Facebook.new(facebook_params)
-    @facebook.user_id = current_user.id #現在ログインしているuserのidを、blogのuser_idカラムに挿入する
+    @facebook = current_user.facebooks.build(facebook_params)
     render :new if @facebook.invalid?
   end
 
