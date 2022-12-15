@@ -8,6 +8,7 @@
       <th>Title</th>
       <th>Content</th>
       <th>Image</th>
+      <th>User</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,6 +19,7 @@
         <td><%= facebook.title %></td>
         <td><%= facebook.content %></td>
         <td><%= facebook.image %></td>
+        <td><%= facebook.user.name %></td>
         <td><%= link_to 'Show', facebook %></td>
         <td><%= link_to 'Edit', edit_facebook_path(facebook) %></td>
         <td><%= link_to 'Destroy', facebook, method: :delete, data: { confirm: 'Are you sure?' } %></td>
