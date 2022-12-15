@@ -1,4 +1,4 @@
 class Facebook < ApplicationRecord
     mount_uploader :image, ImageUploader
-    has_many :users
+    belongs_to :user
 end
