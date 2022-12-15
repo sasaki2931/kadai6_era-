@@ -1,9 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Image:</strong>
-  <%= image_tag @facebook.image.url %>
-</p>
+<% if @facebook.image.present? %>
+    <p>
+        <strong>ユーザーアイコン</strong>
+        <%= image_tag @facebook.image.url %>
+    </p>
+<% end %>
 
-<%= link_to 'Edit', edit_facebaook_path(@facebook) %> |
+<%= link_to 'Edit', facebooks_path %> |
 <%= link_to 'Back', facebooks_path %>
