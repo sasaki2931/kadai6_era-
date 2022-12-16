@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'facebooks#index'
   get 'sessions/new'
   resources :facebooks
   resources :sessions, only: [:new, :create, :destroy]
