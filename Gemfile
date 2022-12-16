@@ -9,6 +9,12 @@ gem 'carrierwave'
 
 gem 'mimemagic'
 
+gem 'net-smtp'
+
+gem 'net-imap'
+
+gem 'net-pop'
+
 
 
 gem 'rails', '~> 6.1.6'
