@@ -6,8 +6,10 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
 import 'bootstrap';
-import '../stylesheets/styles';
 import './scripts';
+import '../stylesheets/application';
+import '../stylesheets/users';
+import '../stylesheets/styles';
 
 Rails.start()
 Turbolinks.start()
