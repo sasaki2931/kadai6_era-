@@ -1,4 +1,4 @@
-<%= form_with(model: facebook) do |form| %>
+<%= form_with(model: @facebook, local: true ,url: choose_new_or_edit ) do |form| %>
   <% if facebook.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(facebook.errors.count, "error") %> prohibited this facebook from being saved:</h2>

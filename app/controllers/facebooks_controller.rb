@@ -21,12 +21,16 @@ class FacebooksController < ApplicationController
     @facebook = current_user.facebooks.build(facebook_params)
 
     respond_to do |format|
-      if @facebook.save
-        format.html { redirect_to facebook_url(@facebook), notice: "Facebook was successfully created." }
-        format.json { render :show, status: :created, location: @facebook }
+      if params[:back]
+        render :new
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @facebook.errors, status: :unprocessable_entity }
+        if @facebook.save
+          format.html { redirect_to facebook_url(@facebook), notice: "Facebook was successfully created." }
+          format.json { render :show, status: :created, location: @facebook }
+        else
+          format.html { render :new, status: :unprocessable_entity }
+          format.json { render json: @facebook.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -48,6 +52,10 @@ class FacebooksController < ApplicationController
         format.json { render json: @facebook.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def confirm
+    @facebook = Facebook.new(facebook_params)
   end
 
   
