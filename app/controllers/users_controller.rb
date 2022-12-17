@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     def create
       @user = User.new(user_params)
       if @user.save
-        redirect_to "http://localhost:3000/facebooks"
+        redirect_to facebooks_path
       else
         render :new
       end

@@ -70,12 +70,12 @@ class FacebooksController < ApplicationController
 
   private
 
-    def set_facebook
-      @facebook = Facebook.find(params[:id])
-    end
+  def set_facebook
+    @facebook = Facebook.find(params[:id])
+  end
 
     
-    def facebook_params
-      params.require(:facebook).permit(:title, :content, :image, :image_cache)
-    end
+  def facebook_params
+    params.require(:facebook).permit(:title, :content, :image, :image_cache)
+  end
 end
