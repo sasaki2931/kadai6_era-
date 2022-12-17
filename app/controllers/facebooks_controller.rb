@@ -25,9 +25,11 @@ class FacebooksController < ApplicationController
         render :new
       else
         if @facebook.save
+          format.any  { render json: @facebook.errors, status: :unprocessable_entity }
           format.html { redirect_to facebook_url(@facebook), notice: "Facebook was successfully created." }
           format.json { render :show, status: :created, location: @facebook }
         else
+          format.any  { render json: @facebook.errors, status: :unprocessable_entity }
           format.html { render :new, status: :unprocessable_entity }
           format.json { render json: @facebook.errors, status: :unprocessable_entity }
         end
